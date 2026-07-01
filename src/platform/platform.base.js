@@ -80,4 +80,16 @@ export default class BasePlatform {
   updateConfig(config) { // eslint-disable-line no-unused-vars
     // no-op
   }
+
+  /**
+   * Called before each draw to let platforms prepare backing resources.
+   * @param {Chart} chart
+   */
+  prepareFrame(chart) {} // eslint-disable-line no-unused-vars
+
+  /**
+   * Called after each draw to let platforms present rendered frames.
+   * @param {Chart} chart
+   */
+  renderFrame(chart) {} // eslint-disable-line no-unused-vars
 }

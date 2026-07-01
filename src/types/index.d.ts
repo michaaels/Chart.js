@@ -2264,10 +2264,19 @@ export declare class BasePlatform {
    * @param {ChartConfiguration | ChartConfigurationCustomTypes} config
    */
   updateConfig(config: ChartConfiguration | ChartConfigurationCustomTypesPerDataset): void;
+  /**
+   * Called before each draw to let platforms prepare backing resources.
+   */
+  prepareFrame(chart: Chart): void;
+  /**
+   * Called after each draw to let platforms present rendered frames.
+   */
+  renderFrame(chart: Chart): void;
 }
 
 export declare class BasicPlatform extends BasePlatform {}
 export declare class DomPlatform extends BasePlatform {}
+export declare class WebGLPlatform extends DomPlatform {}
 
 export declare const Decimation: Plugin;
 

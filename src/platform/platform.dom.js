@@ -38,7 +38,7 @@ const isNullOrEmpty = value => value === null || value === '';
  * @param {HTMLCanvasElement} canvas
  * @param {number} [aspectRatio]
  */
-function initCanvas(canvas, aspectRatio) {
+export function initCanvas(canvas, aspectRatio) {
   const style = canvas.style;
 
   // NOTE(SB) canvas.getAttribute('width') !== canvas.width: in the first case it

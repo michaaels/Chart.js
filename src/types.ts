@@ -33,6 +33,7 @@ export {
   BasePlatform,
   BasicPlatform,
   DomPlatform,
+  WebGLPlatform,
   Decimation,
   Filler,
   Legend,

@@ -703,6 +703,7 @@ class Chart {
       this._resizeBeforeDraw = null;
       this._resize(width, height);
     }
+    this.platform.prepareFrame(this);
     this.clear();
 
     if (this.width <= 0 || this.height <= 0) {
@@ -729,6 +730,7 @@ class Chart {
     }
 
     this.notifyPlugins('afterDraw');
+    this.platform.renderFrame(this);
   }
 
   /**
@@ -798,7 +800,9 @@ class Chart {
       clipArea(ctx, clip);
     }
 
-    meta.controller.draw();
+    if (!this.platform.renderDataset(this, meta, {clip})) {
+      meta.controller.draw();
+    }
 
     if (clip) {
       unclipArea(ctx);

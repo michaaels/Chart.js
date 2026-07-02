@@ -4,6 +4,9 @@ You can navigate through the samples via the sidebar.
 
 Alternatively, you can run them locally. To do so, clone the [Chart.js repository](https://github.com/chartjs/Chart.js) from GitHub, run `pnpm ci` to install all packages, then run `pnpm run docs:dev` to build the documentation. As soon as the build is done, you can go to [localhost:8080/samples](http://localhost:8080/samples/) to see the samples.
 
+## WebGL samples
+In this build, every interactive sample in this section is created with `WebGLPlatform`. Samples show a `GL` badge above the chart when WebGL is active, or a fallback badge if the browser cannot initialize WebGL. Dense scatter datasets with simple circular points are rendered with the GPU dataset renderer; unsupported styles keep the Canvas 2D dataset path to preserve visual parity.
+
 ## Out of the box working samples
 These samples are made for demonstration purposes only. They won't work out of the box if you copy paste them into your own website. This is because of how the docs are getting built. Some boilerplate code gets hidden.
 For a sample that can be copied and pasted and used directly you can check the [usage page](../getting-started/usage.md).

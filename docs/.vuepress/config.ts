@@ -104,6 +104,17 @@ export default defineConfig({
   markdown: {
     extendMarkdown: md => {
       md.use(markdownItInclude, path.resolve(__dirname, '../'));
+
+      const fence = md.renderer.rules.fence;
+      md.renderer.rules.fence = (...args) => {
+        const [tokens, idx] = args;
+        const token = tokens[idx];
+        const lang = token.info.trim();
+
+        return (/ chart-editor( |$)/).test(lang) ?
+          `<WebGLChartEditor :code="\`${token.content}\`"/>` :
+          fence(...args);
+      };
     }
   },
   themeConfig: {
@@ -273,6 +284,7 @@ export default defineConfig({
             'advanced/programmatic-events',
             'advanced/progress-bar',
             'advanced/radial-gradient',
+            'advanced/webgl-heavy-scatter',
           ]
         },
         {

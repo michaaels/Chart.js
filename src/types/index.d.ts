@@ -2272,6 +2272,12 @@ export declare class BasePlatform {
    * Called after each draw to let platforms present rendered frames.
    */
   renderFrame(chart: Chart): void;
+  /**
+   * Called while drawing a dataset, allowing platforms to render it directly.
+   * Returning true means the dataset has been rendered by the platform and the
+   * controller should skip its Canvas 2D draw path.
+   */
+  renderDataset(chart: Chart, meta: unknown, args: unknown): boolean;
 }
 
 export declare class BasicPlatform extends BasePlatform {}

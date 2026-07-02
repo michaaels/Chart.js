@@ -800,7 +800,9 @@ class Chart {
       clipArea(ctx, clip);
     }
 
-    meta.controller.draw();
+    if (!this.platform.renderDataset(this, meta, {clip})) {
+      meta.controller.draw();
+    }
 
     if (clip) {
       unclipArea(ctx);

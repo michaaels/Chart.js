@@ -92,4 +92,17 @@ export default class BasePlatform {
    * @param {Chart} chart
    */
   renderFrame(chart) {} // eslint-disable-line no-unused-vars
+
+  /**
+   * Called while drawing a dataset, allowing platforms to render it directly.
+   * Returning true means the dataset has been rendered by the platform and the
+   * controller should skip its Canvas 2D draw path.
+   * @param {Chart} chart
+   * @param {object} meta
+   * @param {object} args
+   * @returns {boolean}
+   */
+  renderDataset(chart, meta, args) { // eslint-disable-line no-unused-vars
+    return false;
+  }
 }
